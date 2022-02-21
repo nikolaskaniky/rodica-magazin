@@ -2,7 +2,8 @@ import React from "react";
 import Image from "next/image";
 import classes from "./content.module.scss";
 import korea from "../../../assets/korea.jpg";
-import { BsArrowRight } from 'react-icons/bs'
+import { BsArrowRight } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const DATA_ARRAY = [
   {
@@ -38,11 +39,28 @@ const Content = () => {
   return (
     <section className={classes.content}>
       {DATA_ARRAY.map((item, index) => (
-        <div className={classes.box} key={index}>
-          <div className={classes.presentation}
+        <motion.div
+          className={classes.box}
+          key={index}
+          initial={{
+            transform:
+              index === 0 || index === 2 || index === 4
+                ? "translateX(-50%)"
+                : "translateX(50%)",
+            opacity: 0,
+          }}
+          whileInView={{
+            transform: "translateX(0%)",
+            opacity: 1,
+          }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div
+            className={classes.presentation}
             style={{
-                gridColumn: index % 2 === 0 ? '1 / 2' :' 2 / 3',
-                gridRow: '1 / 2'
+              gridColumn: index % 2 === 0 ? "1 / 2" : " 2 / 3",
+              gridRow: "1 / 2",
             }}
           >
             <div className={classes.title}>
@@ -56,22 +74,23 @@ const Content = () => {
 
           <div className={classes.cta}>
             <div className={classes["image-wrapper"]}>
-                <div className={classes.frame}
-                    style={{
-                        left: index % 2 !== 0 && '-30px' 
-                    }}
-                ></div>
+              <div
+                className={classes.frame}
+                style={{
+                  left: index % 2 !== 0 && "-30px",
+                }}
+              ></div>
               <div className={classes.image}>
                 <Image src={item.image} layout="responsive" alt="img" />
               </div>
             </div>
 
             <div className={classes.action}>
-                <p>See now</p>
-                <BsArrowRight />
+              <p>See now</p>
+              <BsArrowRight />
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </section>
   );
