@@ -1,0 +1,15 @@
+@import "../../../styles/helpers.scss";
+
+section.hero {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 173px;
+
+  .image {
+    width: 100%;
+    height: 100%;
+    background-color: #c9c9c9;
+
+    @include center;
+  }
+}

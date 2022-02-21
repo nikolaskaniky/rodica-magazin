@@ -1,0 +1,98 @@
+@import '../../../styles/helpers.scss';
+
+header.navbar {
+  height: 106px;
+  max-width: 1366px;
+  width: 100%;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  padding: 0 20px;
+  align-content: center;
+  align-items: center;
+}
+
+.logo {
+  @include center;
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+ul.menu {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+
+  li {
+    cursor: pointer;
+    position: relative;
+
+    p {
+      text-transform: capitalize;
+      font-weight: 400;
+    }
+
+    &:hover {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: $main-green;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -6px;
+      }
+    }
+
+    &.active {
+      color: $main-green;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1.4px;
+        background-color: $main-green;
+        bottom: -2px;
+        border-radius: 0;
+        transition: 0.2s ease width;
+      }
+    }
+  }
+}
+
+.shop {
+  display: flex;
+  gap: 40px;
+  padding-right: 60px;
+  
+  svg {
+    cursor: pointer;
+  }
+
+  svg.cart {
+    width: 30px;
+    height: 25px;
+  }
+
+  svg.book-mark {
+    width: 18px;
+    height: 25px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 30px;
+
+  p {
+    cursor: pointer;
+    font-weight: 400;
+  }
+}

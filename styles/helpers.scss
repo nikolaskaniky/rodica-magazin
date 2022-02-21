@@ -1,0 +1,17 @@
+$main-green: #19d000;
+$background-green: #DFFCDC;
+$box-shadow: 0 0 8px rgb(199, 197, 197);
+
+@mixin page-config {
+  max-width: 1366px;
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  min-height: 80vh;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

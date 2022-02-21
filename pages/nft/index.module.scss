@@ -1,0 +1,5 @@
+@import '../../styles/helpers.scss';
+
+main.nfs-page {
+    @include page-config;
+}
